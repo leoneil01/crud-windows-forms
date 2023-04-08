@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OdruniaSystem.Functions
 {
@@ -66,6 +67,54 @@ namespace OdruniaSystem.Functions
 			{
 				return false;
 			}
+		}
+
+		public void LoadUsers(DataGridView grid)
+		{
+			try
+			{
+				using (MySqlConnection connection = new MySqlConnection(con.conString()))
+				{
+					string sql = @"select u.id, u.first_name, u.middle_name, u.last_name, g.gender, u.age,
+									date_format(u.birthday, '%m/%d/%Y'), u.contact_number, u.email,
+									date_format(u.created_at, '%m/%d/%Y'), date_format(u.updated_at, '%m/%d/%Y')
+									from tbl_users as u
+									inner join tbl_genders as g on u.gender_FID
+									order by u.last_name, u.first_name;";
+
+					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+					{
+						connection.Open();
+
+						MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+						DataTable dt = new DataTable();
+
+						dt.Clear();
+						da.Fill(dt);
+
+						grid.DataSource = dt;
+						grid.ClearSelection();
+
+						grid.Columns["id"].Visible = false;
+						grid.Columns["first_name"].HeaderText = "First Name";
+						grid.Columns["middle_name"].HeaderText = "Middle Name";
+						grid.Columns["last_name"].HeaderText = "Last Name";
+						grid.Columns["gender"].HeaderText = "Gender";
+						grid.Columns["age"].HeaderText = "Age";
+						grid.Columns["date_format(u.birthday, '%m/%d/%Y')"].HeaderText = "Birthday";
+						grid.Columns["contact_number"].HeaderText = "Contact Number";
+						grid.Columns["email"].HeaderText = "Email";
+						grid.Columns["date_format(u.created_at, '%m/%d/%Y')"].HeaderText = "CreatedAt";
+						grid.Columns["date_format(u.updated_at, '%m/%d/%Y')"].HeaderText = "UpdatedAt";
+
+						connection.Close();
+					}
+				}
+			}
+			catch(Exception ex)
+			{
+                Console.WriteLine("Error loading users: " + ex.ToString());
+            }
 		}
 	}
 }

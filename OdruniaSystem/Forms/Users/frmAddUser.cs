@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OdruniaSystem.Forms.Users
 {
@@ -18,7 +20,7 @@ namespace OdruniaSystem.Forms.Users
 			InitializeComponent();
 		}
 
-		Functions.Check check = new Functions.Check();
+        Functions.Check check = new Functions.Check();
 		Functions.Gender gender = new Functions.Gender();
 		Functions.User user = new Functions.User();
 
@@ -88,22 +90,8 @@ namespace OdruniaSystem.Forms.Users
 					age--;
 				}
 
-				if(user.AddUser(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text), cmbGender.Text, age, dateBirthday.Value.Date, txtContactNumber.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text))
+				if (user.AddUser(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text), cmbGender.Text, age, dateBirthday.Value.Date, txtContactNumber.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text))
 				{
-					//Forms.Users.frmUserList frmUserList = new Forms.Users.frmUserList();
-
-					//int n = frmUserList.gridUsers.Rows.Add();
-					//frmUserList.gridUsers.Rows[n].Cells[0].Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text);
-					//frmUserList.gridUsers.Rows[n].Cells[1].Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text);
-					//frmUserList.gridUsers.Rows[n].Cells[2].Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text);
-					//frmUserList.gridUsers.Rows[n].Cells[3].Value = cmbGender.Text;
-					//frmUserList.gridUsers.Rows[n].Cells[4].Value = age.ToString();
-					//frmUserList.gridUsers.Rows[n].Cells[5].Value = dateBirthday.Value.ToString();
-					//frmUserList.gridUsers.Rows[n].Cells[6].Value = txtContactNumber.Text;
-					//frmUserList.gridUsers.Rows[n].Cells[7].Value = txtEmail.Text;
-					//frmUserList.gridUsers.Rows[n].Cells[8].Value = txtUsername.Text;
-					//frmUserList.gridUsers.ClearSelection();
-
 					MessageBox.Show("User successfully added!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 					txtFirstName.ResetText();

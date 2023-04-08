@@ -52,7 +52,9 @@
 			// 
 			// btnExit
 			// 
+			this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnExit.AutoSize = true;
+			this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnExit.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnExit.Location = new System.Drawing.Point(4, 417);
 			this.btnExit.Name = "btnExit";
@@ -65,6 +67,7 @@
 			// btnCustomers
 			// 
 			this.btnCustomers.AutoSize = true;
+			this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnCustomers.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnCustomers.Location = new System.Drawing.Point(4, 93);
 			this.btnCustomers.Name = "btnCustomers";
@@ -77,6 +80,7 @@
 			// btnUsers
 			// 
 			this.btnUsers.AutoSize = true;
+			this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnUsers.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnUsers.Location = new System.Drawing.Point(4, 59);
 			this.btnUsers.Name = "btnUsers";
@@ -101,18 +105,19 @@
 			// pnlDashboard
 			// 
 			this.pnlDashboard.BackColor = System.Drawing.SystemColors.Window;
+			this.pnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlDashboard.Location = new System.Drawing.Point(160, 0);
 			this.pnlDashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.pnlDashboard.Name = "pnlDashboard";
-			this.pnlDashboard.Size = new System.Drawing.Size(801, 450);
+			this.pnlDashboard.Size = new System.Drawing.Size(819, 450);
 			this.pnlDashboard.TabIndex = 1;
 			// 
 			// frmDashboard
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.ClientSize = new System.Drawing.Size(962, 450);
+			this.ClientSize = new System.Drawing.Size(979, 450);
 			this.Controls.Add(this.pnlDashboard);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

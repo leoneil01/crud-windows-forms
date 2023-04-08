@@ -17,11 +17,23 @@ namespace OdruniaSystem.Forms.Users
 			InitializeComponent();
 		}
 
+		Functions.User user = new Functions.User();
+
+		private void frmUserList_Load(object sender, EventArgs e)
+		{
+			user.LoadUsers(gridUsers);
+		}
+
 		private void btnAddUser_Click(object sender, EventArgs e)
 		{
 			Forms.Users.frmAddUser frmAddUser = new Forms.Users.frmAddUser();
 			frmAddUser.Show();
 			Application.OpenForms["frmDashboard"].Close();
+		}
+
+		private void frmUserList_VisibleChanged(object sender, EventArgs e)
+		{
+			gridUsers.ClearSelection();
 		}
 	}
 }
