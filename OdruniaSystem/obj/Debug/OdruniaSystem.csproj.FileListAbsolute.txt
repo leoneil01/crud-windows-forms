@@ -30,3 +30,4 @@ D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.F
 D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Users.frmAddUser.resources
 D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Users.frmUserList.resources
 D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.frmAddUserLogin.resources
+D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Users.frmViewUser.resources

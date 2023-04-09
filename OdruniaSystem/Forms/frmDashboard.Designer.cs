@@ -44,10 +44,10 @@
 			this.panel1.Controls.Add(this.btnCustomers);
 			this.panel1.Controls.Add(this.btnUsers);
 			this.panel1.Controls.Add(this.label1);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(160, 450);
+			this.panel1.Size = new System.Drawing.Size(979, 95);
 			this.panel1.TabIndex = 0;
 			// 
 			// btnExit
@@ -56,7 +56,7 @@
 			this.btnExit.AutoSize = true;
 			this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnExit.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnExit.Location = new System.Drawing.Point(4, 417);
+			this.btnExit.Location = new System.Drawing.Point(12, 32);
 			this.btnExit.Name = "btnExit";
 			this.btnExit.Size = new System.Drawing.Size(151, 28);
 			this.btnExit.TabIndex = 3;
@@ -69,7 +69,7 @@
 			this.btnCustomers.AutoSize = true;
 			this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnCustomers.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCustomers.Location = new System.Drawing.Point(4, 93);
+			this.btnCustomers.Location = new System.Drawing.Point(612, 49);
 			this.btnCustomers.Name = "btnCustomers";
 			this.btnCustomers.Size = new System.Drawing.Size(151, 28);
 			this.btnCustomers.TabIndex = 2;
@@ -82,7 +82,7 @@
 			this.btnUsers.AutoSize = true;
 			this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnUsers.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnUsers.Location = new System.Drawing.Point(4, 59);
+			this.btnUsers.Location = new System.Drawing.Point(612, 15);
 			this.btnUsers.Name = "btnUsers";
 			this.btnUsers.Size = new System.Drawing.Size(151, 28);
 			this.btnUsers.TabIndex = 1;
@@ -95,7 +95,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(10, 20);
+			this.label1.Location = new System.Drawing.Point(799, 31);
 			this.label1.Margin = new System.Windows.Forms.Padding(1);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(138, 27);
@@ -105,11 +105,11 @@
 			// pnlDashboard
 			// 
 			this.pnlDashboard.BackColor = System.Drawing.SystemColors.Window;
-			this.pnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlDashboard.Location = new System.Drawing.Point(160, 0);
+			this.pnlDashboard.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.pnlDashboard.Location = new System.Drawing.Point(0, 92);
 			this.pnlDashboard.Margin = new System.Windows.Forms.Padding(2);
 			this.pnlDashboard.Name = "pnlDashboard";
-			this.pnlDashboard.Size = new System.Drawing.Size(819, 450);
+			this.pnlDashboard.Size = new System.Drawing.Size(979, 358);
 			this.pnlDashboard.TabIndex = 1;
 			// 
 			// frmDashboard

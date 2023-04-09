@@ -66,5 +66,36 @@ namespace OdruniaSystem.Components
 				}
 			}
 		}
+
+		// User Values
+		public static int userId;
+        public int UserId { get { return userId; } set { userId = value; } }
+
+		public static string userFirstName;
+        public string UserFirstName { get { return userFirstName; } set { userFirstName = value; } }
+
+		public static string userMiddleName;
+        public string UserMiddleName { get { return userMiddleName; } set { userMiddleName = value; } }
+
+		public static string userLastName;
+        public string UserLastName { get { return userLastName; } set { userLastName = value; } }
+
+		public static string userGender;
+        public string UserGender { get { return userGender; } set { userGender = value; } }
+
+		public static int userAge;
+        public int UserAge { get { return userAge; } set { userAge = value; } }
+
+		public static DateTime userBirthday;
+        public DateTime UserBirthday { get { return userBirthday; } set { userBirthday = value; } }
+
+		public static string userContactNumber;
+        public string UserContactNumber { get { return userContactNumber; } set { userContactNumber = value; } }
+
+		public static string userEmail;
+        public string UserEmail { get { return userEmail; } set { userEmail = value; } }
+
+		public static string userUsername;
+        public string UserUsername { get { return userUsername; } set { userUsername = value; } }
     }
 }

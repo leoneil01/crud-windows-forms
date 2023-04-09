@@ -35,5 +35,19 @@ namespace OdruniaSystem.Forms.Users
 		{
 			gridUsers.ClearSelection();
 		}
+
+		private void btnViewUser_Click(object sender, EventArgs e)
+		{
+			if(gridUsers.SelectedRows.Count < 1)
+			{
+				MessageBox.Show("Select user first!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else if (user.GetUser(int.Parse(gridUsers.SelectedCells[0].Value.ToString())))
+			{
+				Forms.Users.frmViewUser frmViewUser = new Forms.Users.frmViewUser();
+				frmViewUser.Show();
+				Application.OpenForms["frmDashBoard"].Close();
+			}
+		}
 	}
 }
