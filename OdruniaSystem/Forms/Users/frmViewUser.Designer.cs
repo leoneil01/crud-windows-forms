@@ -67,6 +67,7 @@
 			this.txtFirstName.ReadOnly = true;
 			this.txtFirstName.Size = new System.Drawing.Size(221, 27);
 			this.txtFirstName.TabIndex = 1;
+			this.txtFirstName.TabStop = false;
 			// 
 			// txtMiddleName
 			// 
@@ -76,6 +77,7 @@
 			this.txtMiddleName.ReadOnly = true;
 			this.txtMiddleName.Size = new System.Drawing.Size(221, 27);
 			this.txtMiddleName.TabIndex = 3;
+			this.txtMiddleName.TabStop = false;
 			// 
 			// label2
 			// 
@@ -95,6 +97,7 @@
 			this.txtLastName.ReadOnly = true;
 			this.txtLastName.Size = new System.Drawing.Size(221, 27);
 			this.txtLastName.TabIndex = 5;
+			this.txtLastName.TabStop = false;
 			// 
 			// label3
 			// 
@@ -114,6 +117,7 @@
 			this.txtGender.ReadOnly = true;
 			this.txtGender.Size = new System.Drawing.Size(221, 27);
 			this.txtGender.TabIndex = 7;
+			this.txtGender.TabStop = false;
 			// 
 			// label4
 			// 
@@ -133,6 +137,7 @@
 			this.txtBirthday.ReadOnly = true;
 			this.txtBirthday.Size = new System.Drawing.Size(221, 27);
 			this.txtBirthday.TabIndex = 9;
+			this.txtBirthday.TabStop = false;
 			// 
 			// label5
 			// 
@@ -152,6 +157,7 @@
 			this.txtContactNumber.ReadOnly = true;
 			this.txtContactNumber.Size = new System.Drawing.Size(221, 27);
 			this.txtContactNumber.TabIndex = 11;
+			this.txtContactNumber.TabStop = false;
 			// 
 			// label6
 			// 
@@ -171,6 +177,7 @@
 			this.txtEmail.ReadOnly = true;
 			this.txtEmail.Size = new System.Drawing.Size(221, 27);
 			this.txtEmail.TabIndex = 13;
+			this.txtEmail.TabStop = false;
 			// 
 			// label7
 			// 
@@ -190,6 +197,7 @@
 			this.txtAge.ReadOnly = true;
 			this.txtAge.Size = new System.Drawing.Size(221, 27);
 			this.txtAge.TabIndex = 15;
+			this.txtAge.TabStop = false;
 			// 
 			// label8
 			// 
@@ -209,7 +217,8 @@
 			this.btnBack.Location = new System.Drawing.Point(564, 376);
 			this.btnBack.Name = "btnBack";
 			this.btnBack.Size = new System.Drawing.Size(94, 29);
-			this.btnBack.TabIndex = 16;
+			this.btnBack.TabIndex = 0;
+			this.btnBack.TabStop = false;
 			this.btnBack.Text = "Back";
 			this.btnBack.UseVisualStyleBackColor = true;
 			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -222,6 +231,7 @@
 			this.txtUsername.ReadOnly = true;
 			this.txtUsername.Size = new System.Drawing.Size(221, 27);
 			this.txtUsername.TabIndex = 18;
+			this.txtUsername.TabStop = false;
 			// 
 			// label9
 			// 

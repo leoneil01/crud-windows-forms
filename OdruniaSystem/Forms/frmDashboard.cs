@@ -25,7 +25,21 @@ namespace OdruniaSystem.Forms
 			pnlDashboard.Controls.Add(frmUserList);
 			frmUserList.Dock = DockStyle.Fill;
 			frmUserList.Show();
-			//this.Close();
+		}
+
+		private void btnCustomers_Click(object sender, EventArgs e)
+		{
+			pnlDashboard.Controls.Clear();
+			Forms.Customers.frmCustomerList frmCustomerList = new Forms.Customers.frmCustomerList();
+			frmCustomerList.TopLevel = false;
+			pnlDashboard.Controls.Add(frmCustomerList);
+			frmCustomerList.Dock = DockStyle.Fill;
+			frmCustomerList.Show();
+		}
+
+		private void btnExit_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
 		}
 	}
 }

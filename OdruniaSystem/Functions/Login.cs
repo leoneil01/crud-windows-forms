@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OdruniaSystem.Functions
 {
@@ -62,7 +63,7 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-                Console.WriteLine("Error authenticating user: " + ex.ToString());
+				MessageBox.Show("Error authenticating users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
             }
 		}

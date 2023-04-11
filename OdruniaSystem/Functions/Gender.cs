@@ -38,8 +38,8 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-                Console.WriteLine("Error loading genders in combo box gender: " + ex.ToString());
-            }
+				MessageBox.Show("Error loading genders in combo box gender: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 	}
 }

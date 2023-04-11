@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OdruniaSystem.Functions
 {
@@ -50,7 +51,7 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-                Console.WriteLine("Error checking username if exists: " + ex.ToString());
+				MessageBox.Show("Error checking username: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
             }
 		}

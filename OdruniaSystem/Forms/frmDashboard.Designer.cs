@@ -63,6 +63,7 @@
 			this.btnExit.TabStop = false;
 			this.btnExit.Text = "Exit";
 			this.btnExit.UseVisualStyleBackColor = true;
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
 			// btnCustomers
 			// 
@@ -76,6 +77,7 @@
 			this.btnCustomers.TabStop = false;
 			this.btnCustomers.Text = "Customers";
 			this.btnCustomers.UseVisualStyleBackColor = true;
+			this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
 			// 
 			// btnUsers
 			// 

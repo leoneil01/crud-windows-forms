@@ -95,11 +95,29 @@
   <ItemGroup>
     <Compile Include="Components\Connection.cs" />
     <Compile Include="Components\Value.cs" />
+    <Compile Include="Forms\Customers\frmAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers\frmAddCustomer.Designer.cs">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Customers\frmCustomerList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Customers\frmCustomerList.Designer.cs">
       <DependentUpon>frmCustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\frmUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers\frmUpdateCustomer.Designer.cs">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\frmViewCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers\frmViewCustomer.Designer.cs">
+      <DependentUpon>frmViewCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmAddUserLogin.cs">
       <SubType>Form</SubType>
@@ -125,6 +143,12 @@
     <Compile Include="Forms\Users\frmAddUser.Designer.cs">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmUpdateUser.Designer.cs">
+      <DependentUpon>frmUpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\frmUserList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +162,24 @@
       <DependentUpon>frmViewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Functions\Check.cs" />
+    <Compile Include="Functions\Customer.cs" />
     <Compile Include="Functions\Gender.cs" />
     <Compile Include="Functions\Login.cs" />
     <Compile Include="Functions\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Customers\frmAddCustomer.resx">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\frmCustomerList.resx">
+      <DependentUpon>frmCustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\frmUpdateCustomer.resx">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\frmViewCustomer.resx">
+      <DependentUpon>frmViewCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAddUserLogin.resx">
       <DependentUpon>frmAddUserLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmUpdateUser.resx">
+      <DependentUpon>frmUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>

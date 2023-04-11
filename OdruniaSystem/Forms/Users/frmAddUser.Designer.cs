@@ -132,9 +132,6 @@
 			// 
 			this.cmbGender.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cmbGender.FormattingEnabled = true;
-			this.cmbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
 			this.cmbGender.Location = new System.Drawing.Point(46, 342);
 			this.cmbGender.Name = "cmbGender";
 			this.cmbGender.Size = new System.Drawing.Size(183, 27);
@@ -453,6 +450,7 @@
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "OdruniaSystem";
+			this.Load += new System.EventHandler(this.frmAddUser_LoadGender);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

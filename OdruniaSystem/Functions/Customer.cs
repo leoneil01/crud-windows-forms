@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace OdruniaSystem.Functions
 {
-	internal class User
+	internal class Customer
 	{
 		Components.Connection con = new Components.Connection();
 		Components.Value val = new Components.Value();
 
-		public bool AddUser(string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email, string username, string password)
+		public bool AddCustomer(string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email)
 		{
 			try
 			{
@@ -39,10 +39,10 @@ namespace OdruniaSystem.Functions
 						val.GenderId = dt.Rows[0].Field<int>("id");
 					}
 
-					sql = @"insert into tbl_users(first_name, middle_name, last_name, gender_FID, age, birthday, contact_number, email, username, password)
-							values (@firstName, @middleName, @lastName, @genderFID, @age, @birthday, @contactNumber, @email, @username, MD5(@password));";
+					sql = @"insert into tbl_customers(first_name, middle_name, last_name, gender_FID, age, birthday, contact_number, email)
+							values(@firstName, @middleName, @lastName, @genderFID, @age, @birthday, @contactNumber, @email)";
 
-					using (MySqlCommand cmd = new MySqlCommand(@sql, connection))
+					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
 					{
 						cmd.Parameters.AddWithValue("@firstName", firstName);
 						cmd.Parameters.AddWithValue("@middleName", middleName);
@@ -52,8 +52,6 @@ namespace OdruniaSystem.Functions
 						cmd.Parameters.AddWithValue("@birthday", birthday);
 						cmd.Parameters.AddWithValue("@contactNumber", contactNumber);
 						cmd.Parameters.AddWithValue("@email", email);
-						cmd.Parameters.AddWithValue("@username", username);
-						cmd.Parameters.AddWithValue("@password", password);
 
 						MySqlDataReader dr = cmd.ExecuteReader();
 						dr.Close();
@@ -63,25 +61,24 @@ namespace OdruniaSystem.Functions
 					}
 				}
 			}
-			catch (Exception ex)
+			catch(Exception ex)
 			{
-                MessageBox.Show("Error adding users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error adding customer: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-			}
+            }
 		}
 
-		public void LoadUsers(DataGridView grid)
+		public void LoadCustomers(DataGridView grid)
 		{
 			try
 			{
 				using (MySqlConnection connection = new MySqlConnection(con.conString()))
 				{
-					string sql = @"select u.id, u.first_name, u.middle_name, u.last_name, g.gender, u.age,
-									date_format(u.birthday, '%m/%d/%Y'), u.contact_number, u.email,
-									date_format(u.created_at, '%m/%d/%Y'), date_format(u.updated_at, '%m/%d/%Y')
-									from tbl_users as u
-									inner join tbl_genders as g on u.gender_FID = g.id
-									order by u.last_name, u.first_name;";
+					string sql = @"select c.id, c.first_name, c.middle_name, c.last_name, g.gender, c.age, date_format(c.birthday, '%m/%d/%Y'), c.contact_number, c.email,
+									date_format(c.created_at, '%m/%d/%Y'), date_format(c.updated_at, '%m/%d/%Y')
+									from tbl_customers as c
+									inner join tbl_genders as g on c.gender_FID = g.id
+									order by c.last_name, c.first_name;";
 
 					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
 					{
@@ -102,11 +99,11 @@ namespace OdruniaSystem.Functions
 						grid.Columns["last_name"].HeaderText = "Last Name";
 						grid.Columns["gender"].HeaderText = "Gender";
 						grid.Columns["age"].HeaderText = "Age";
-						grid.Columns["date_format(u.birthday, '%m/%d/%Y')"].HeaderText = "Birthday";
+						grid.Columns["date_format(c.birthday, '%m/%d/%Y')"].HeaderText = "Birthday";
 						grid.Columns["contact_number"].HeaderText = "Contact Number";
 						grid.Columns["email"].HeaderText = "Email";
-						grid.Columns["date_format(u.created_at, '%m/%d/%Y')"].HeaderText = "CreatedAt";
-						grid.Columns["date_format(u.updated_at, '%m/%d/%Y')"].HeaderText = "UpdatedAt";
+						grid.Columns["date_format(c.created_at, '%m/%d/%Y')"].HeaderText = "CreatedAt";
+						grid.Columns["date_format(c.updated_at, '%m/%d/%Y')"].HeaderText = "UpdatedAt";
 
 						foreach(DataGridViewColumn column in grid.Columns)
 						{
@@ -119,20 +116,20 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-				MessageBox.Show("Error loading users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error loading customer: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
-		public bool GetUser(int id)
+		public bool GetCustomer(int id)
 		{
 			try
 			{
 				using (MySqlConnection connection = new MySqlConnection(con.conString()))
 				{
-					string sql = @"select u.id, u.first_name, u.middle_name, u.last_name, g.gender, u.age, u.birthday, u.contact_number, u.email, u.username
-									from tbl_users as u
-									inner join tbl_genders as g on u.gender_FID = g.id
-									where u.id = @id;";
+					string sql = @"select c.id, c.first_name, c.middle_name, c.last_name, g.gender, c.age, c.birthday, c.contact_number, c.email
+									from tbl_customers as c
+									inner join tbl_genders as g on c.gender_FID = g.id
+									where c.id = @id;";
 
 					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
 					{
@@ -148,16 +145,15 @@ namespace OdruniaSystem.Functions
 
 						if(dt.Rows.Count > 0)
 						{
-							val.UserId = dt.Rows[0].Field<int>("id");
-							val.UserFirstName = dt.Rows[0].Field<string>("first_name");
-							val.UserMiddleName = dt.Rows[0].Field<string>("middle_name");
-							val.UserLastName = dt.Rows[0].Field<string>("last_name");
-							val.UserGender = dt.Rows[0].Field<string>("gender");
-							val.UserAge = dt.Rows[0].Field<int>("age");
-							val.UserBirthday = dt.Rows[0].Field<DateTime>("birthday");
-							val.UserContactNumber = dt.Rows[0].Field<string>("contact_number");
-							val.UserEmail = dt.Rows[0].Field<string>("email");
-							val.UserUsername = dt.Rows[0].Field<string>("username");
+							val.CustomerId = dt.Rows[0].Field<int>("id");
+							val.CustomerFirstName = dt.Rows[0].Field<string>("first_name");
+							val.CustomerMiddleName = dt.Rows[0].Field<string>("middle_name");
+							val.CustomerLastName = dt.Rows[0].Field<string>("last_name");
+							val.CustomerGender = dt.Rows[0].Field<string>("gender");
+							val.CustomerAge = dt.Rows[0].Field<int>("age");
+							val.CustomerBirthday = dt.Rows[0].Field<DateTime>("birthday");
+							val.CustomerContactNumber = dt.Rows[0].Field<string>("contact_number");
+							val.CustomerEmail = dt.Rows[0].Field<string>("email");
 
 							connection.Close();
 							return true;
@@ -172,12 +168,12 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-				MessageBox.Show("Error getting users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error getting customer: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-            }
+			}
 		}
 
-		public bool UpdateUser(int id, string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email, string username)
+		public bool UpdateCustomer(int id, string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email)
 		{
 			try
 			{
@@ -202,9 +198,8 @@ namespace OdruniaSystem.Functions
 						val.GenderId = dt.Rows[0].Field<int>("id");
 					}
 
-					sql = @"update tbl_users
-							set first_name = @firstName, middle_name = @middleName, last_name = @lastName, gender_FID = @genderFID, age = @age, birthday = @birthday, contact_number = @contactNumber, email = @email, username = @username, updated_at = current_timestamp
-							where id = @id;";
+					sql = @"update tbl_customers
+							set first_name = @firstName, middle_name = @middleName, last_name = @lastName, email = @email, gender_FID = @genderFID, age = @age, birthday = @birthday, contact_number = @contactNumber;";
 
 					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
 					{
@@ -212,12 +207,11 @@ namespace OdruniaSystem.Functions
 						cmd.Parameters.AddWithValue("@firstName", firstName);
 						cmd.Parameters.AddWithValue("@middleName", middleName);
 						cmd.Parameters.AddWithValue("@lastName", lastName);
+						cmd.Parameters.AddWithValue("@email", email);
 						cmd.Parameters.AddWithValue("@genderFID", val.GenderId);
 						cmd.Parameters.AddWithValue("@age", age);
 						cmd.Parameters.AddWithValue("@birthday", birthday);
 						cmd.Parameters.AddWithValue("@contactNumber", contactNumber);
-						cmd.Parameters.AddWithValue("@email", email);
-						cmd.Parameters.AddWithValue("@username", username);
 
 						MySqlDataReader dr = cmd.ExecuteReader();
 						dr.Close();
@@ -229,19 +223,19 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-				MessageBox.Show("Error updating users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error updating customer: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-            }
+			}
 		}
 
-		public bool DeleteUser(int id)
+		public bool DeleteCustomer(int id)
 		{
 			try
 			{
 				using (MySqlConnection connection = new MySqlConnection(con.conString()))
 				{
 					string sql = @"delete
-									from tbl_users
+									from tbl_customers
 									where id = @id;";
 
 					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -260,9 +254,9 @@ namespace OdruniaSystem.Functions
 			}
 			catch(Exception ex)
 			{
-				MessageBox.Show("Error deleting users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error deleting customer: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-            }
+			}
 		}
 	}
 }

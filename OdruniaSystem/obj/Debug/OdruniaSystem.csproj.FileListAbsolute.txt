@@ -31,3 +31,8 @@ D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.F
 D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Users.frmUserList.resources
 D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.frmAddUserLogin.resources
 D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Users.frmViewUser.resources
+D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Users.frmUpdateUser.resources
+D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Customers.frmCustomerList.resources
+D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Customers.frmAddCustomer.resources
+D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Customers.frmViewCustomer.resources
+D:\Documents\visual-studio\OdruniaSystem\OdruniaSystem\obj\Debug\OdruniaSystem.Forms.Customers.frmUpdateCustomer.resources

@@ -10,12 +10,14 @@ namespace OdruniaSystem.Components
 {
 	internal class Value
 	{
+		// Server Values
 		public string serverName = "localhost";
 		public string serverUser = "root1";
 		public string serverPass = "";
 		public string serverPort = "3306";
 		public string serverDb = "odrunia_db_01";
 
+		// Gender Values
 		public static int genderId;
         public int GenderId { get { return genderId; } set { genderId = value; } }
 
@@ -25,6 +27,7 @@ namespace OdruniaSystem.Components
 		public static int myId;
         public int MyId { get { return myId; } set { myId = value; } }
 
+		// My Values
 		public static string myFirstName;
         public string MyFirstName { get { return myFirstName; } set { myFirstName = value; } }
 
@@ -97,5 +100,33 @@ namespace OdruniaSystem.Components
 
 		public static string userUsername;
         public string UserUsername { get { return userUsername; } set { userUsername = value; } }
+
+		// Customer Values
+		public static int customerId;
+        public int CustomerId { get { return customerId; } set { customerId = value; } }
+
+		public static string customerFirstName;
+        public string CustomerFirstName { get { return customerFirstName; } set { customerFirstName = value; } }
+
+		public static string customerMiddleName;
+        public string CustomerMiddleName { get { return customerMiddleName; } set { customerMiddleName = value; } }
+
+		public static string customerLastName;
+        public string CustomerLastName { get { return customerLastName; } set { customerLastName = value; } }
+
+		public static string customerGender;
+        public string CustomerGender { get { return customerGender; } set { customerGender = value; } }
+
+		public static int customerAge;
+        public int CustomerAge { get { return customerAge; } set { customerAge = value; } }
+
+		public static DateTime customerBirthday;
+        public DateTime CustomerBirthday { get { return customerBirthday; } set { customerBirthday = value; } }
+
+		public static string customerEmail;
+        public string CustomerEmail { get { return customerEmail; } set { customerEmail = value; } }
+
+		public static string customerContactNumber;
+        public string CustomerContactNumber { get { return customerContactNumber; } set { customerContactNumber = value; } }
     }
 }

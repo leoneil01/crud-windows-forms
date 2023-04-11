@@ -46,7 +46,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(400, 19);
+			this.label1.Location = new System.Drawing.Point(482, 19);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(136, 25);
 			this.label1.TabIndex = 0;
@@ -55,6 +55,7 @@
 			// btnAddUser
 			// 
 			this.btnAddUser.AutoSize = true;
+			this.btnAddUser.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnAddUser.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnAddUser.Location = new System.Drawing.Point(12, 72);
 			this.btnAddUser.Name = "btnAddUser";
@@ -68,6 +69,7 @@
 			// btnViewUser
 			// 
 			this.btnViewUser.AutoSize = true;
+			this.btnViewUser.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnViewUser.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnViewUser.Location = new System.Drawing.Point(12, 106);
 			this.btnViewUser.Name = "btnViewUser";
@@ -81,6 +83,7 @@
 			// btnUpdateUser
 			// 
 			this.btnUpdateUser.AutoSize = true;
+			this.btnUpdateUser.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnUpdateUser.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnUpdateUser.Location = new System.Drawing.Point(12, 140);
 			this.btnUpdateUser.Name = "btnUpdateUser";
@@ -89,10 +92,12 @@
 			this.btnUpdateUser.TabStop = false;
 			this.btnUpdateUser.Text = "Update User";
 			this.btnUpdateUser.UseVisualStyleBackColor = true;
+			this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
 			// 
 			// btnDeleteUser
 			// 
 			this.btnDeleteUser.AutoSize = true;
+			this.btnDeleteUser.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnDeleteUser.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnDeleteUser.Location = new System.Drawing.Point(12, 318);
 			this.btnDeleteUser.Name = "btnDeleteUser";
@@ -101,10 +106,11 @@
 			this.btnDeleteUser.TabStop = false;
 			this.btnDeleteUser.Text = "Delete User";
 			this.btnDeleteUser.UseVisualStyleBackColor = true;
+			this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.SystemColors.Info;
+			this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
 			this.panel1.Controls.Add(this.btnAddUser);
 			this.panel1.Controls.Add(this.btnDeleteUser);
 			this.panel1.Controls.Add(this.btnViewUser);
@@ -134,6 +140,7 @@
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.gridUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.gridUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.gridUsers.Cursor = System.Windows.Forms.Cursors.Hand;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -155,7 +162,7 @@
 			this.gridUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.gridUsers.RowHeadersVisible = false;
 			this.gridUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.gridUsers.Size = new System.Drawing.Size(701, 299);
+			this.gridUsers.Size = new System.Drawing.Size(846, 299);
 			this.gridUsers.TabIndex = 6;
 			this.gridUsers.TabStop = false;
 			// 
@@ -164,7 +171,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.ClientSize = new System.Drawing.Size(834, 358);
+			this.ClientSize = new System.Drawing.Size(979, 358);
 			this.Controls.Add(this.gridUsers);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label1);
