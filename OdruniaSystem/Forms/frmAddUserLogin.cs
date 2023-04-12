@@ -101,19 +101,6 @@ namespace OdruniaSystem.Forms
 				{
 					MessageBox.Show("Failed to add user!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
-
-				Forms.Users.frmUserList frmUserList = new Forms.Users.frmUserList();
-				int n = frmUserList.gridUsers.Rows.Add();
-				frmUserList.gridUsers.Rows[n].Cells[0].Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text);
-				frmUserList.gridUsers.Rows[n].Cells[1].Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text);
-				frmUserList.gridUsers.Rows[n].Cells[2].Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text);
-				frmUserList.gridUsers.Rows[n].Cells[3].Value = cmbGender.Text;
-				frmUserList.gridUsers.Rows[n].Cells[4].Value = age.ToString();
-				frmUserList.gridUsers.Rows[n].Cells[5].Value = dateBirthday.Value.ToString();
-				frmUserList.gridUsers.Rows[n].Cells[6].Value = txtContactNumber.Text;
-				frmUserList.gridUsers.Rows[n].Cells[7].Value = txtEmail.Text;
-				frmUserList.gridUsers.Rows[n].Cells[8].Value = txtUsername.Text;
-				frmUserList.gridUsers.ClearSelection();
 			}
 		}
 

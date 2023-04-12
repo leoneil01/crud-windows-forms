@@ -199,7 +199,8 @@ namespace OdruniaSystem.Functions
 					}
 
 					sql = @"update tbl_customers
-							set first_name = @firstName, middle_name = @middleName, last_name = @lastName, email = @email, gender_FID = @genderFID, age = @age, birthday = @birthday, contact_number = @contactNumber;";
+							set first_name = @firstName, middle_name = @middleName, last_name = @lastName, email = @email, gender_FID = @genderFID, age = @age, birthday = @birthday, contact_number = @contactNumber, updated_at = current_timestamp
+							where id = @id;";
 
 					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
 					{
