@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
 
 namespace OdruniaSystem.Forms.Users
 {
@@ -20,7 +21,7 @@ namespace OdruniaSystem.Forms.Users
 			InitializeComponent();
 		}
 
-        Functions.Check check = new Functions.Check();
+		Functions.Check check = new Functions.Check();
 		Functions.Gender gender = new Functions.Gender();
 		Functions.User user = new Functions.User();
 
@@ -84,13 +85,21 @@ namespace OdruniaSystem.Forms.Users
 			}
 			else
 			{
+				byte[] profilePicture = null;
+				if (!String.IsNullOrWhiteSpace(imgLocation))
+				{
+					FileStream fs = new FileStream(imgLocation,FileMode.Open,FileAccess.Read);
+					BinaryReader br = new BinaryReader(fs);
+					profilePicture = br.ReadBytes((int)fs.Length);
+				}
+
 				int age = DateTime.Today.Year - dateBirthday.Value.Year;
 				if(dateBirthday.Value.Date > DateTime.Today.AddYears(-age))
 				{
 					age--;
 				}
 
-				if (user.AddUser(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text), cmbGender.Text, age, dateBirthday.Value.Date, txtContactNumber.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text))
+				if (user.AddUser(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text), cmbGender.Text, age, dateBirthday.Value.Date, txtContactNumber.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, profilePicture))
 				{
 					MessageBox.Show("User successfully added!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -129,6 +138,34 @@ namespace OdruniaSystem.Forms.Users
 			frmUserList.Dock = DockStyle.Fill;
 			frmUserList.Show();
 			this.Close();
+		}
+
+		string imgLocation = string.Empty;
+		private void btnUpload_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog dialog = new OpenFileDialog();
+			dialog.InitialDirectory = "d:\\Downloads";
+			dialog.Filter = "PNG Files|*.png|JPG Files|*.jpg|ALL Files|*.*";
+			
+			if(dialog.ShowDialog() == DialogResult.OK)
+			{
+				imgLocation = dialog.FileName;
+				pbUserPicture.ImageLocation = imgLocation;
+			}
+
+			txtFirstName.Focus();
+		}
+
+		private void RemovePhoto()
+		{
+			imgLocation = string.Empty;
+			pbUserPicture.ImageLocation = imgLocation;
+		}
+
+		private void btnRemove_Click(object sender, EventArgs e)
+		{
+			RemovePhoto();
+			txtFirstName.Focus();
 		}
 	}
 }

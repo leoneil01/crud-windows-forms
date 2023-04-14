@@ -47,6 +47,8 @@
 			this.btnBack = new System.Windows.Forms.Button();
 			this.txtUsername = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
+			this.pbUserPicture = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pbUserPicture)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -243,12 +245,23 @@
 			this.label9.TabIndex = 17;
 			this.label9.Text = "Username";
 			// 
+			// pbUserPicture
+			// 
+			this.pbUserPicture.BackColor = System.Drawing.SystemColors.Control;
+			this.pbUserPicture.Location = new System.Drawing.Point(621, 53);
+			this.pbUserPicture.Name = "pbUserPicture";
+			this.pbUserPicture.Size = new System.Drawing.Size(157, 110);
+			this.pbUserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pbUserPicture.TabIndex = 19;
+			this.pbUserPicture.TabStop = false;
+			// 
 			// frmViewUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.ClientSize = new System.Drawing.Size(670, 417);
+			this.ClientSize = new System.Drawing.Size(864, 417);
+			this.Controls.Add(this.pbUserPicture);
 			this.Controls.Add(this.txtUsername);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.btnBack);
@@ -275,6 +288,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "OdruniaSystem";
 			this.Load += new System.EventHandler(this.frmViewUser_Load);
+			((System.ComponentModel.ISupportInitialize)(this.pbUserPicture)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -301,5 +315,6 @@
 		private System.Windows.Forms.Button btnBack;
 		private System.Windows.Forms.TextBox txtUsername;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.PictureBox pbUserPicture;
 	}
 }

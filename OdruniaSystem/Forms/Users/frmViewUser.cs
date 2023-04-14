@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace OdruniaSystem.Forms.Users
 {
@@ -38,6 +39,12 @@ namespace OdruniaSystem.Forms.Users
 
 		private void frmViewUser_Load(object sender, EventArgs e)
 		{
+			if (val.UserPicture != null)
+			{
+				MemoryStream ms = new MemoryStream(val.UserPicture);
+				pbUserPicture.Image = Image.FromStream(ms);
+			}
+
 			txtFirstName.Text = val.UserFirstName;
 			txtMiddleName.Text = val.UserMiddleName;
 			txtLastName.Text = val.UserLastName;

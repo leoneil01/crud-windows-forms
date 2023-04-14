@@ -62,6 +62,10 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtFirstName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.btnRemove = new System.Windows.Forms.Button();
+			this.btnUpload = new System.Windows.Forms.Button();
+			this.pbUserPicture = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pbUserPicture)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label22
@@ -404,12 +408,42 @@
 			this.label1.TabIndex = 36;
 			this.label1.Text = "First Name";
 			// 
+			// btnRemove
+			// 
+			this.btnRemove.Location = new System.Drawing.Point(276, 274);
+			this.btnRemove.Name = "btnRemove";
+			this.btnRemove.Size = new System.Drawing.Size(75, 23);
+			this.btnRemove.TabIndex = 72;
+			this.btnRemove.Text = "Remove";
+			this.btnRemove.UseVisualStyleBackColor = true;
+			// 
+			// btnUpload
+			// 
+			this.btnUpload.Location = new System.Drawing.Point(357, 273);
+			this.btnUpload.Name = "btnUpload";
+			this.btnUpload.Size = new System.Drawing.Size(75, 23);
+			this.btnUpload.TabIndex = 71;
+			this.btnUpload.Text = "Upload";
+			this.btnUpload.UseVisualStyleBackColor = true;
+			// 
+			// pbUserPicture
+			// 
+			this.pbUserPicture.BackColor = System.Drawing.SystemColors.Control;
+			this.pbUserPicture.Location = new System.Drawing.Point(275, 135);
+			this.pbUserPicture.Name = "pbUserPicture";
+			this.pbUserPicture.Size = new System.Drawing.Size(157, 132);
+			this.pbUserPicture.TabIndex = 70;
+			this.pbUserPicture.TabStop = false;
+			// 
 			// frmAddUserLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(476, 807);
+			this.Controls.Add(this.btnRemove);
+			this.Controls.Add(this.btnUpload);
+			this.Controls.Add(this.pbUserPicture);
 			this.Controls.Add(this.label22);
 			this.Controls.Add(this.label21);
 			this.Controls.Add(this.label20);
@@ -450,6 +484,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "OdruniaSystem";
 			this.Load += new System.EventHandler(this.frmAddUserLogin_LoadGender);
+			((System.ComponentModel.ISupportInitialize)(this.pbUserPicture)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -491,5 +526,8 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtFirstName;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button btnRemove;
+		private System.Windows.Forms.Button btnUpload;
+		private System.Windows.Forms.PictureBox pbUserPicture;
 	}
 }

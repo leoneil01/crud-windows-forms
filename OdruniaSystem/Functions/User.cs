@@ -14,7 +14,7 @@ namespace OdruniaSystem.Functions
 		Components.Connection con = new Components.Connection();
 		Components.Value val = new Components.Value();
 
-		public bool AddUser(string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email, string username, string password)
+		public bool AddUser(string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email, string username, string password, byte[] profilePicture)
 		{
 			try
 			{
@@ -39,8 +39,8 @@ namespace OdruniaSystem.Functions
 						val.GenderId = dt.Rows[0].Field<int>("id");
 					}
 
-					sql = @"insert into tbl_users(first_name, middle_name, last_name, gender_FID, age, birthday, contact_number, email, username, password)
-							values (@firstName, @middleName, @lastName, @genderFID, @age, @birthday, @contactNumber, @email, @username, MD5(@password));";
+					sql = @"insert into tbl_users(first_name, middle_name, last_name, gender_FID, age, birthday, contact_number, email, username, password, profile_picture)
+							values (@firstName, @middleName, @lastName, @genderFID, @age, @birthday, @contactNumber, @email, @username, MD5(@password), @profilePicture);";
 
 					using (MySqlCommand cmd = new MySqlCommand(@sql, connection))
 					{
@@ -54,6 +54,7 @@ namespace OdruniaSystem.Functions
 						cmd.Parameters.AddWithValue("@email", email);
 						cmd.Parameters.AddWithValue("@username", username);
 						cmd.Parameters.AddWithValue("@password", password);
+						cmd.Parameters.AddWithValue("@profilePicture", profilePicture);
 
 						MySqlDataReader dr = cmd.ExecuteReader();
 						dr.Close();
@@ -65,7 +66,7 @@ namespace OdruniaSystem.Functions
 			}
 			catch (Exception ex)
 			{
-                MessageBox.Show("Error adding users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Error adding users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 		}
@@ -78,7 +79,8 @@ namespace OdruniaSystem.Functions
 				{
 					string sql = @"select u.id, u.first_name, u.middle_name, u.last_name, g.gender, u.age,
 									date_format(u.birthday, '%m/%d/%Y'), u.contact_number, u.email,
-									date_format(u.created_at, '%m/%d/%Y'), date_format(u.updated_at, '%m/%d/%Y')
+									date_format(u.created_at, '%m/%d/%Y'), date_format(u.updated_at, '%m/%d/%Y'),
+									u.profile_picture
 									from tbl_users as u
 									inner join tbl_genders as g on u.gender_FID = g.id
 									order by u.last_name, u.first_name;";
@@ -107,6 +109,11 @@ namespace OdruniaSystem.Functions
 						grid.Columns["email"].HeaderText = "Email";
 						grid.Columns["date_format(u.created_at, '%m/%d/%Y')"].HeaderText = "CreatedAt";
 						grid.Columns["date_format(u.updated_at, '%m/%d/%Y')"].HeaderText = "UpdatedAt";
+						grid.Columns["profile_picture"].HeaderText = "User Picture";
+
+						DataGridViewImageColumn clmProfilePicture = new DataGridViewImageColumn();
+						clmProfilePicture = (DataGridViewImageColumn)grid.Columns["profile_picture"];
+						clmProfilePicture.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
 						foreach(DataGridViewColumn column in grid.Columns)
 						{
@@ -129,7 +136,7 @@ namespace OdruniaSystem.Functions
 			{
 				using (MySqlConnection connection = new MySqlConnection(con.conString()))
 				{
-					string sql = @"select u.id, u.first_name, u.middle_name, u.last_name, g.gender, u.age, u.birthday, u.contact_number, u.email, u.username
+					string sql = @"select u.id, u.first_name, u.middle_name, u.last_name, g.gender, u.age, u.birthday, u.contact_number, u.email, u.username, u.profile_picture
 									from tbl_users as u
 									inner join tbl_genders as g on u.gender_FID = g.id
 									where u.id = @id;";
@@ -158,6 +165,7 @@ namespace OdruniaSystem.Functions
 							val.UserContactNumber = dt.Rows[0].Field<string>("contact_number");
 							val.UserEmail = dt.Rows[0].Field<string>("email");
 							val.UserUsername = dt.Rows[0].Field<string>("username");
+							val.UserPicture = dt.Rows[0].Field<byte[]>("profile_picture");
 
 							connection.Close();
 							return true;
@@ -174,10 +182,10 @@ namespace OdruniaSystem.Functions
 			{
 				MessageBox.Show("Error getting users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-            }
+			}
 		}
 
-		public bool UpdateUser(int id, string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email, string username)
+		public bool UpdateUser(int id, string firstName, string middleName, string lastName, string gender, int age, DateTime birthday, string contactNumber, string email, string username, byte[] profilePicture)
 		{
 			try
 			{
@@ -203,7 +211,7 @@ namespace OdruniaSystem.Functions
 					}
 
 					sql = @"update tbl_users
-							set first_name = @firstName, middle_name = @middleName, last_name = @lastName, gender_FID = @genderFID, age = @age, birthday = @birthday, contact_number = @contactNumber, email = @email, username = @username, updated_at = current_timestamp
+							set first_name = @firstName, middle_name = @middleName, last_name = @lastName, gender_FID = @genderFID, age = @age, birthday = @birthday, contact_number = @contactNumber, email = @email, username = @username, updated_at = current_timestamp, profile_picture = @profilePicture
 							where id = @id;";
 
 					using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -218,6 +226,7 @@ namespace OdruniaSystem.Functions
 						cmd.Parameters.AddWithValue("@contactNumber", contactNumber);
 						cmd.Parameters.AddWithValue("@email", email);
 						cmd.Parameters.AddWithValue("@username", username);
+						cmd.Parameters.AddWithValue("@profilePicture", profilePicture);
 
 						MySqlDataReader dr = cmd.ExecuteReader();
 						dr.Close();
@@ -231,7 +240,7 @@ namespace OdruniaSystem.Functions
 			{
 				MessageBox.Show("Error updating users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-            }
+			}
 		}
 
 		public bool DeleteUser(int id)
@@ -262,7 +271,7 @@ namespace OdruniaSystem.Functions
 			{
 				MessageBox.Show("Error deleting users: " + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
-            }
+			}
 		}
 	}
 }

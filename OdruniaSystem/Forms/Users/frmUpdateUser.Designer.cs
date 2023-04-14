@@ -46,12 +46,16 @@
 			this.btnSave = new System.Windows.Forms.Button();
 			this.cmbGender = new System.Windows.Forms.ComboBox();
 			this.dateBirthday = new System.Windows.Forms.DateTimePicker();
+			this.pbUserPicture = new System.Windows.Forms.PictureBox();
+			this.btnRemove = new System.Windows.Forms.Button();
+			this.btnUpload = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.pbUserPicture)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// txtUsername
 			// 
 			this.txtUsername.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtUsername.Location = new System.Drawing.Point(386, 78);
+			this.txtUsername.Location = new System.Drawing.Point(331, 78);
 			this.txtUsername.Name = "txtUsername";
 			this.txtUsername.Size = new System.Drawing.Size(221, 27);
 			this.txtUsername.TabIndex = 4;
@@ -60,7 +64,7 @@
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(382, 56);
+			this.label9.Location = new System.Drawing.Point(327, 56);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(80, 19);
 			this.label9.TabIndex = 35;
@@ -69,7 +73,7 @@
 			// txtEmail
 			// 
 			this.txtEmail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtEmail.Location = new System.Drawing.Point(104, 269);
+			this.txtEmail.Location = new System.Drawing.Point(49, 269);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(221, 27);
 			this.txtEmail.TabIndex = 3;
@@ -78,7 +82,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(100, 247);
+			this.label7.Location = new System.Drawing.Point(45, 247);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(48, 19);
 			this.label7.TabIndex = 31;
@@ -87,7 +91,7 @@
 			// txtContactNumber
 			// 
 			this.txtContactNumber.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtContactNumber.Location = new System.Drawing.Point(386, 269);
+			this.txtContactNumber.Location = new System.Drawing.Point(331, 269);
 			this.txtContactNumber.Name = "txtContactNumber";
 			this.txtContactNumber.Size = new System.Drawing.Size(221, 27);
 			this.txtContactNumber.TabIndex = 7;
@@ -96,7 +100,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(382, 247);
+			this.label6.Location = new System.Drawing.Point(327, 247);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(124, 19);
 			this.label6.TabIndex = 29;
@@ -106,7 +110,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(382, 181);
+			this.label5.Location = new System.Drawing.Point(327, 181);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(67, 19);
 			this.label5.TabIndex = 27;
@@ -116,7 +120,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(382, 120);
+			this.label4.Location = new System.Drawing.Point(327, 120);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(60, 19);
 			this.label4.TabIndex = 25;
@@ -125,7 +129,7 @@
 			// txtLastName
 			// 
 			this.txtLastName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtLastName.Location = new System.Drawing.Point(104, 203);
+			this.txtLastName.Location = new System.Drawing.Point(49, 203);
 			this.txtLastName.Name = "txtLastName";
 			this.txtLastName.Size = new System.Drawing.Size(221, 27);
 			this.txtLastName.TabIndex = 2;
@@ -134,7 +138,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(100, 181);
+			this.label3.Location = new System.Drawing.Point(45, 181);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(83, 19);
 			this.label3.TabIndex = 23;
@@ -143,7 +147,7 @@
 			// txtMiddleName
 			// 
 			this.txtMiddleName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtMiddleName.Location = new System.Drawing.Point(104, 139);
+			this.txtMiddleName.Location = new System.Drawing.Point(49, 139);
 			this.txtMiddleName.Name = "txtMiddleName";
 			this.txtMiddleName.Size = new System.Drawing.Size(221, 27);
 			this.txtMiddleName.TabIndex = 1;
@@ -152,7 +156,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(100, 117);
+			this.label2.Location = new System.Drawing.Point(45, 117);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(101, 19);
 			this.label2.TabIndex = 21;
@@ -161,7 +165,7 @@
 			// txtFirstName
 			// 
 			this.txtFirstName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtFirstName.Location = new System.Drawing.Point(104, 78);
+			this.txtFirstName.Location = new System.Drawing.Point(49, 78);
 			this.txtFirstName.Name = "txtFirstName";
 			this.txtFirstName.Size = new System.Drawing.Size(221, 27);
 			this.txtFirstName.TabIndex = 0;
@@ -170,7 +174,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(100, 56);
+			this.label1.Location = new System.Drawing.Point(45, 56);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(85, 19);
 			this.label1.TabIndex = 19;
@@ -207,7 +211,7 @@
 			// 
 			this.cmbGender.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cmbGender.FormattingEnabled = true;
-			this.cmbGender.Location = new System.Drawing.Point(386, 139);
+			this.cmbGender.Location = new System.Drawing.Point(331, 139);
 			this.cmbGender.Name = "cmbGender";
 			this.cmbGender.Size = new System.Drawing.Size(221, 27);
 			this.cmbGender.TabIndex = 5;
@@ -215,10 +219,40 @@
 			// dateBirthday
 			// 
 			this.dateBirthday.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateBirthday.Location = new System.Drawing.Point(386, 203);
+			this.dateBirthday.Location = new System.Drawing.Point(331, 203);
 			this.dateBirthday.Name = "dateBirthday";
 			this.dateBirthday.Size = new System.Drawing.Size(221, 27);
 			this.dateBirthday.TabIndex = 6;
+			// 
+			// pbUserPicture
+			// 
+			this.pbUserPicture.BackColor = System.Drawing.SystemColors.Control;
+			this.pbUserPicture.Location = new System.Drawing.Point(605, 21);
+			this.pbUserPicture.Name = "pbUserPicture";
+			this.pbUserPicture.Size = new System.Drawing.Size(157, 132);
+			this.pbUserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pbUserPicture.TabIndex = 38;
+			this.pbUserPicture.TabStop = false;
+			// 
+			// btnRemove
+			// 
+			this.btnRemove.Location = new System.Drawing.Point(606, 160);
+			this.btnRemove.Name = "btnRemove";
+			this.btnRemove.Size = new System.Drawing.Size(75, 23);
+			this.btnRemove.TabIndex = 40;
+			this.btnRemove.Text = "Remove";
+			this.btnRemove.UseVisualStyleBackColor = true;
+			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+			// 
+			// btnUpload
+			// 
+			this.btnUpload.Location = new System.Drawing.Point(687, 159);
+			this.btnUpload.Name = "btnUpload";
+			this.btnUpload.Size = new System.Drawing.Size(75, 23);
+			this.btnUpload.TabIndex = 39;
+			this.btnUpload.Text = "Upload";
+			this.btnUpload.UseVisualStyleBackColor = true;
+			this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
 			// 
 			// frmUpdateUser
 			// 
@@ -226,6 +260,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.btnRemove);
+			this.Controls.Add(this.btnUpload);
+			this.Controls.Add(this.pbUserPicture);
 			this.Controls.Add(this.dateBirthday);
 			this.Controls.Add(this.cmbGender);
 			this.Controls.Add(this.btnSave);
@@ -250,6 +287,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "OdruniaSystem";
 			this.Load += new System.EventHandler(this.frmUpdateUser_Load);
+			((System.ComponentModel.ISupportInitialize)(this.pbUserPicture)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -275,5 +313,8 @@
 		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.ComboBox cmbGender;
 		private System.Windows.Forms.DateTimePicker dateBirthday;
+		private System.Windows.Forms.PictureBox pbUserPicture;
+		private System.Windows.Forms.Button btnRemove;
+		private System.Windows.Forms.Button btnUpload;
 	}
 }

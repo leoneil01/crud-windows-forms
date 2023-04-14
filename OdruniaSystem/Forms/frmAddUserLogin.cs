@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace OdruniaSystem.Forms
 		{
 			gender.LoadGendersInCmb(cmbGender);
 		}
+
+		string imgLocation = "";
 
 		private void btnLoginAdd_Click(object sender, EventArgs e)
 		{
@@ -83,13 +86,21 @@ namespace OdruniaSystem.Forms
 			}
 			else
 			{
+				byte[] profilePicture = null;
+				if (!String.IsNullOrWhiteSpace(imgLocation))
+				{
+					FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+					BinaryReader br = new BinaryReader(fs);
+					profilePicture = br.ReadBytes((int)fs.Length);
+				}
+
 				int age = DateTime.Today.Year - dateBirthday.Value.Year;
 				if (dateBirthday.Value.Date > DateTime.Today.AddYears(-age))
 				{
 					age--;
 				}
 
-				if (user.AddUser(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text), cmbGender.Text, age, dateBirthday.Value.Date, txtContactNumber.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text))
+				if (user.AddUser(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtFirstName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtMiddleName.Text), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtLastName.Text), cmbGender.Text, age, dateBirthday.Value.Date, txtContactNumber.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, profilePicture))
 				{
 					MessageBox.Show("User successfully added!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
